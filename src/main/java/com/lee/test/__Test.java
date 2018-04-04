@@ -17,6 +17,8 @@ public class __Test<T> {
 
 
   public static void main(String[] args) {
+
+    //添加一个初始化注释
     try {
       testRxJavaWithoutBlocking(5);
     } catch (Exception e) {
