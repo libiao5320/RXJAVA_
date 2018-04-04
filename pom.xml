@@ -11,7 +11,7 @@
 
   <scm>
     <developerConnection>
-      scm:git:https://github.com/libiao5320/RXJAVA_.git
+      scm:git:libiao5320@https://github.com/libiao5320/RXJAVA_.git
     </developerConnection>
   </scm>
 
