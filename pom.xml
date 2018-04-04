@@ -8,7 +8,7 @@
   <packaging>pom</packaging>
 
   <scm>
-    <developerConnection>scm:git:https://github.com/libiao5320/RXJAVA_.git
+    <developerConnection>scm:git:https://${scm.username}:${scm.password}@github.com/libiao5320/RXJAVA_.git
     </developerConnection>
     <tag>0.0.2</tag>
   </scm>
