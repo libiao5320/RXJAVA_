@@ -10,8 +10,7 @@
   <packaging>pom</packaging>
 
   <scm>
-    <developerConnection>
-      scm:git:libiao5320@https://github.com/libiao5320/RXJAVA_.git
+    <developerConnection>scm:git:https://github.com/libiao5320/RXJAVA_.git
     </developerConnection>
   </scm>
 

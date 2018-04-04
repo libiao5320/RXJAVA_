@@ -27,7 +27,7 @@ public class __Test<T> {
 
   }
 
-
+  //添加一个初始化注释
   public static void testRxJavaWithoutBlocking(int count) throws Exception {
     CountDownLatch finishedLatch = new CountDownLatch(1);
     long t = System.nanoTime();
