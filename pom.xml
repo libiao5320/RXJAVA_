@@ -4,14 +4,14 @@
 
   <groupId>com.woreader.rxjava</groupId>
   <artifactId>rxjava</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
 
   <scm>
     <developerConnection>
       scm:git:https://libiao5320:nande1jian@github.com/libiao5320/RXJAVA_.git
     </developerConnection>
-    <tag>0.1.0</tag>
+    <tag>0.0.2</tag>
   </scm>
 
 
