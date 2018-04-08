@@ -9,7 +9,7 @@
 
   <scm>
     <developerConnection>
-      scm:git:https://libiao5320:nande1jian@github.com/libiao5320/RXJAVA_.git
+      scm:git:https://${scm.username}:${scm.password}github.com/libiao5320/RXJAVA_.git
     </developerConnection>
     <tag>0.0.7</tag>
   </scm>
@@ -18,6 +18,18 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <url>http://192.168.112.16:8081/nexus/content/repositories/microservicesnapshots/</url>
+    </snapshotRepository>
+    <repository>
+      <id>releases</id>
+      <url>http://192.168.112.16:8081/nexus/content/repositories/microservicerelease/</url>
+    </repository>
+  </distributionManagement>
 
 
   <dependencies>
