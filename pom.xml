@@ -9,7 +9,7 @@
 
   <scm>
     <developerConnection>
-      scm:git:https://${scm.username}:${scm.password}github.com/libiao5320/RXJAVA_.git
+      scm:git:https://${scm.username}:${scm.password}@github.com/libiao5320/RXJAVA_.git
     </developerConnection>
     <tag>0.0.8</tag>
   </scm>
