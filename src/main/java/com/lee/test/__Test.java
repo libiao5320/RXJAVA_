@@ -7,15 +7,22 @@ import rx.Observer;
 import rx.functions.Func0;
 
 /**
- * @author
+ * <p>__Test class.</p>
+ *
  * @create 2018-03-15 11:31
- **/
+ * @version $Id: $Id
+ */
 public class __Test<T> {
 
   private static Observable<?> observable = null;
   private static Observer observer = null;
 
 
+  /**
+   * <p>main.</p>
+   *
+   * @param args an array of {@link java.lang.String} objects.
+   */
   public static void main(String[] args) {
 
     //添加一个初始化注释
@@ -28,6 +35,12 @@ public class __Test<T> {
   }
 
   //添加一个初始化注释
+  /**
+   * <p>testRxJavaWithoutBlocking.</p>
+   *
+   * @param count a int.
+   * @throws java.lang.Exception if any.
+   */
   public static void testRxJavaWithoutBlocking(int count) throws Exception {
     CountDownLatch finishedLatch = new CountDownLatch(1);
     long t = System.nanoTime();
