@@ -6,12 +6,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.functions.Func0;
 
-/**
- * <p>__Test class.</p>
- *
- * @create 2018-03-15 11:31
- * @version $Id: $Id
- */
+
 public class __Test<T> {
 
   private static Observable<?> observable = null;

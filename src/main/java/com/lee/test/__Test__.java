@@ -4,12 +4,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.functions.Func0;
 
-/**
- * <p>__Test__ class.</p>
- *
- * @create 2018-03-15 14:19
- * @version $Id: $Id
- */
+
 public class __Test__<T> {
 
   private Observable<T> observable = null;
