@@ -1,6 +1,8 @@
 package com.lee.test;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import java.util.concurrent.CountDownLatch;
 import rx.Observable;
 import rx.Observer;
@@ -19,6 +21,17 @@ public class __Test<T> {
    * @param args an array of {@link java.lang.String} objects.
    */
   public static void main(String[] args) {
+
+
+
+
+    String _s  = "{\"filedate\":\"\\xsdfsdf\"}";
+
+    JSONObject jsonObject = JSON.parseObject(_s);
+
+
+    System.out.println(jsonObject.get("filedate"));
+
 
     //添加一个初始化注释
     try {
