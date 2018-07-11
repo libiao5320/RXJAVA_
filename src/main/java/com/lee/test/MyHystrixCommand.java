@@ -13,7 +13,7 @@ public class MyHystrixCommand extends HystrixCommand<String> {
 
 
   public MyHystrixCommand(HystrixCommandGroupKey group) {
-    super(group);
+    super(group,1000);
   }
 
   @Override
@@ -22,4 +22,9 @@ public class MyHystrixCommand extends HystrixCommand<String> {
     return ""+_TESTGETTOMCATINFO.getTomcatPort();
 
   }
+
+  protected String getFallback() {
+    return "Fall back";
+  }
+
 }

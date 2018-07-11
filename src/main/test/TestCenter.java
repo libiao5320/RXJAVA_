@@ -1,4 +1,6 @@
 import com.lee.test.MyHystrixCommand;
+import com.lee.test._TESTGETTOMCATINFO;
+import com.netflix.hystrix.HystrixCommand;
 import com.netflix.hystrix.HystrixCommandGroupKey;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +30,18 @@ public class TestCenter {
     Future ff = new MyHystrixCommand(HystrixCommandGroupKey.Factory.asKey("www")).observe().toBlocking().toFuture();
 
 
+//     HystrixCommand hystrixCommand = new HystrixCommand(HystrixCommandGroupKey.Factory.asKey("www"),5000) {
+//       @Override
+//       protected Object run() throws Exception {
+//
+//
+//         Thread.currentThread().sleep(2000);
+//         return ""+ _TESTGETTOMCATINFO.getTomcatPort();
+//       }
+//     };
+
+
+//     System.out.println(hystrixCommand.execute());
 
 
 //    try {
@@ -57,8 +71,12 @@ public class TestCenter {
 //      }
 //    });
 //
+
     try {
+
+      Thread.currentThread().sleep(2000);
       System.out.println(" ----------" + ff.get());
+
     } catch (InterruptedException e) {
       e.printStackTrace();
     } catch (ExecutionException e) {
