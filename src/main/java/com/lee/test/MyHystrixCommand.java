@@ -8,19 +8,16 @@ import com.netflix.hystrix.HystrixCommandGroupKey;
  * @create 2018-06-08 16:30
  **/
 public class MyHystrixCommand extends HystrixCommand<String> {
-
-
-
-
   public MyHystrixCommand(HystrixCommandGroupKey group) {
     super(group,1000);
   }
 
+
+
   @Override
   protected String run() throws Exception {
 
-    return ""+_TESTGETTOMCATINFO.getTomcatPort();
-
+    return   "" +_TESTGETTOMCATINFO.getTomcatPort();
   }
 
   protected String getFallback() {
