@@ -38,14 +38,9 @@ public class AESUtil {
     IvParameterSpec iv = new IvParameterSpec(ivParameter.getBytes());//使用CBC模式，需要一个向量iv，可增加加密算法的强度
     cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
     byte[] encrypted = cipher.doFinal(sSrc.getBytes(encodingFormat));
-
     System.out.println("16进制的是" + bytesToHex(encrypted)); // 这里先转换成16进制的
-
     BASE64Encoder base64Encoder = new BASE64Encoder();
-
     return base64Encoder.encodeBuffer(bytesToHex(encrypted).getBytes()); //在转码成Base64
-
-
   }
 
   //5NFeDv6wAG9ZQeQGGNpNkWiaLWr4u1GHuH51VhqRPIB/LSMH06nR6XJ7C8afERLdaxNdsswgyaxw

@@ -25,7 +25,7 @@ public class __Test<T> {
 
 
 
-    String _s  = "{\"filedate\":\"\\xsdfsdf\"}";
+    String _s  = "{\"filedate\":\"xsdfsdf\"}";
 
     JSONObject jsonObject = JSON.parseObject(_s);
 
@@ -35,7 +35,7 @@ public class __Test<T> {
 
     //添加一个初始化注释
     try {
-      testRxJavaWithoutBlocking(5);
+      testRxJavaWithoutBlocking(1);
     } catch (Exception e) {
       e.printStackTrace();
     }

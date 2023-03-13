@@ -6,39 +6,32 @@ import rx.Subscriber;
 import rx.Subscription;
 import rx.functions.Func0;
 
+import java.util.HashMap;
 
 public class __Test__<T> {
 
   private static Observable<String> observable = null;
-  private Observer observer = null;
+
 
 
   public static void main(String[] args) {
-
     observable = create();
-    observable.doOnSubscribe(() -> {
-      System.out.println("aaaaasssss");
+    observable= observable.doOnSubscribe(()->{
+      System.out.println("被创建");
+    });
+    observable.doOnNext(r->{
+      System.out.println("1");
+    });
+    observable.doOnNext(r->{
+      System.out.println("2");
+    });    observable.doOnNext(r->{
+      System.out.println("3");
+    });
+    observable.map((t)->{
+      return new HashMap();
     });
 
-    observable.doOnNext(r -> {
-
-      System.out.println("工作");
-
-    });
-
-    Subscription subscription = observable.subscribe((r -> {
-
-      System.out.println("Hello " + r);
-
-    }), (throwable -> {
-      System.out.println("Hello " + throwable.getMessage());
-    }));
-
-    observable.lift(e -> {
-      System.out.println("aaaaa");
-      return null;
-    });
-
+    observable.subscribe();
 
   }
 
@@ -49,35 +42,12 @@ public class __Test__<T> {
    * @return a {@link rx.Observable} object.
    */
   public static Observable<String> create() {
-//    observable = Observable.defer(new Func0<Observable<T>>() {
-//      public Observable<T> call() {
-//        return null;
-//      }
-//    });
-//    observer = new Observer() {
-//      @Override
-//      public void onCompleted() {
-//
-//      }
-//
-//      @Override
-//      public void onError(Throwable throwable) {
-//
-//      }
-//
-//      @Override
-//      public void onNext(Object o) {
-//
-//      }
-//    };
+    observable = Observable.create(new Observable.OnSubscribe<String>() {
+      @Override
+      public void call(Subscriber<? super String> subscriber) {
 
-    observable = Observable.just("1111");
-    observable = Observable.create(e -> {
-        System.out.println("bbbbbb");
+      }
     });
-
-
-
     return observable;
   }
 

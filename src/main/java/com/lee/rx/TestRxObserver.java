@@ -13,7 +13,7 @@ import java.util.function.Function;
 public class TestRxObserver {
 
         public static void main(String [] args) {
-                Observable<Integer> observable = Observable.just(1, 2, 3, 4, 5, 6, 7);
+                Observable<Integer> observable = Observable.just(1);
                 BlockingObservable blockingObservable = BlockingObservable.from(observable);
                 Subscription subscription  = observable.subscribe(Observers.create(t -> {
                         t = t + 5;
@@ -41,6 +41,12 @@ public class TestRxObserver {
                                 };
                         }
                 }).subscribe();
-                System.out.println(blockingObservable.first());
+                try {
+                        System.out.println(blockingObservable.toFuture().get());
+                } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                } catch (ExecutionException e) {
+                        throw new RuntimeException(e);
+                }
         }
 }
