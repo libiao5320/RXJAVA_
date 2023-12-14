@@ -1,17 +1,22 @@
 package com.lee.rx;
 
-import rx.*;
-import rx.internal.schedulers.NewThreadWorker;
-import rx.schedulers.ImmediateScheduler;
+import rx.Notification;
+import rx.Observable;
+import rx.Observer;
+import rx.Scheduler;
+import rx.observables.BlockingObservable;
+import rx.observables.ConnectableObservable;
 import rx.schedulers.NewThreadScheduler;
 import rx.schedulers.Schedulers;
-import rx.schedulers.TestScheduler;
 
 import java.util.concurrent.TimeUnit;
+
 
 public class TestObserver {
 
     public static void main(String[] args) {
+
+
         Observer observer = new Observer<Command>() {
 
             @Override
@@ -29,21 +34,37 @@ public class TestObserver {
                 command.execute();
             }
         };
-        Scheduler testScheduler = Schedulers.immediate();
 
         NewThreadScheduler newThreadScheduler = (NewThreadScheduler) Schedulers.newThread();
 
-        Observable observable =  Observable.just(new Command(), new Command()).subscribeOn(testScheduler);
 
-        observable.subscribe(observer);
+        Notification commandNotification = Notification.createOnNext(new Command());
+        Observable observable =  Observable.just(commandNotification.getValue());
+        observable = observable.subscribeOn(newThreadScheduler);
+
+        ConnectableObservable connectableObservable = observable.replay();
+        connectableObservable.subscribe(observer);
+//        connectableObservable.connect((t)->{
+//            System.out.println("1111111111111");
+//        });
+
+        BlockingObservable<Command> blockingObservable = BlockingObservable.from(connectableObservable);
+//        blockingObservable.forEach(t->{
+//            t.execute();
+//        });
+
+//        observable.subscribe(observer);
+
+//        newThreadScheduler.now();
+//        NewThreadWorker threadWork = (NewThreadWorker) newThreadScheduler.createWorker();
+////        threadWork.scheduleActual(()->{System.out.println("threadWork执行");},1,TimeUnit.SECONDS);
+//        threadWork.scheduleActual(()->{
+//            observable.subscribe(observer);
+//        },5,TimeUnit.SECONDS);
 
 
-        NewThreadWorker threadWork = (NewThreadWorker) newThreadScheduler.createWorker();
-        threadWork.scheduleActual(()->{System.out.println("threadWork执行");},1,TimeUnit.SECONDS);
-
-
+        Scheduler testScheduler = Schedulers.immediate();
         Scheduler.Worker worker = testScheduler.createWorker();
-
         worker.schedulePeriodically(()->{
             System.out.println("work执行");
         },1,10,TimeUnit.SECONDS);

@@ -13,14 +13,17 @@ public class BizCommand extends HystrixCommand {
     private static final String groupName =  "test";
     private ICommand command;
 
+
     protected BizCommand(ICommand command) {
+
         super(HystrixCommandGroupKey.Factory.asKey(groupName));
         this.command = command;
     }
 
     @Override
     public Object run() throws Exception {
-        return command.execute();
+         return command.call();
+//        return command.getResult();
     }
 
 
